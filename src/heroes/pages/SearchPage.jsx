@@ -10,7 +10,7 @@ export const SearchPage = () => {
     const location = useLocation();
     const { q = "" } = queryString.parse(location.search);
 
-    const hero = getHeroesByName(q);
+    const heroes = getHeroesByName(q);
 
     const { searchText, onInputChange, onResetForm } = useForm({ searchText: '' })
 
@@ -49,7 +49,12 @@ export const SearchPage = () => {
                     <div className="alert alert-danger">
                         no hero with <b>{q}</b>
                     </div>
-                    <HeroCard key={hero.id} {...hero} />
+                    {
+                        heroes.map(hero => (
+                            <HeroCard key={hero.id} {...hero} />
+                        ))
+                    }
+
 
                 </div>
             </div>
