@@ -12,7 +12,7 @@ export const SearchPage = () => {
 
     const heroes = getHeroesByName(q);
 
-    const { searchText, onInputChange, onResetForm } = useForm({ searchText: '' })
+    const { searchText, onInputChange, onResetForm } = useForm({ searchText: q })
 
 
     const onSearchSubmit = (event) => {
@@ -42,20 +42,24 @@ export const SearchPage = () => {
                     <h4>Results</h4>
                     <hr />
 
-                    <div className="alert alert-primary">
-                        search hero
-                    </div>
+                    {
+                        q === ''
+                            ? <div className="alert alert-primary">
+                                search hero
+                            </div>
+                            : (heroes.length === 0 && <div className="alert alert-danger">
+                                no hero with <b>{q}</b>
+                            </div>)
+                    }
 
-                    <div className="alert alert-danger">
-                        no hero with <b>{q}</b>
-                    </div>
+
+
+
                     {
                         heroes.map(hero => (
                             <HeroCard key={hero.id} {...hero} />
                         ))
                     }
-
-
                 </div>
             </div>
 
