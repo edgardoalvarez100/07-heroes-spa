@@ -5,7 +5,6 @@ import { AuthProvider } from './auth'
 export const HeroesApp = () => {
     return (
         <AuthProvider value={{}}>
-
             <AppRouter />
         </AuthProvider>
 
