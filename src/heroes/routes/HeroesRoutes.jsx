@@ -3,9 +3,14 @@ import { Navbar } from "../../ui"
 import { DcPage, MarvelPage, SearchPage, HeroPage } from '../pages'
 
 
+
 export const HeroesRoutes = () => {
+
+
+
     return (
         <>
+
             <Navbar />
             <div className='container'>
                 <Routes>
